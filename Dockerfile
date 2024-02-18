@@ -5,6 +5,12 @@ LABEL maintainer="myoung34@my.apsu.edu"
 ENV AGENT_TOOLSDIRECTORY=/opt/hostedtoolcache
 RUN mkdir -p /opt/hostedtoolcache
 
+# Install Node.js and npm
+RUN apt-get update && \
+    apt-get install -y curl sudo && \
+    curl -fsSL https://deb.nodesource.com/setup_21.x | sudo -E bash - && \
+    sudo apt-get install -y nodejs
+
 ARG GH_RUNNER_VERSION="2.313.0"
 
 ARG TARGETPLATFORM
