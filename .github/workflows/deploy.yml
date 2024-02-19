@@ -7,8 +7,6 @@ on:
     branches:
       - master
       - develop
-  schedule:
-    - cron:  '59 23 * * *'
 
 permissions:
   contents: read
@@ -16,7 +14,7 @@ permissions:
 
 jobs:
   ubuntu_latest_deploy:
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     steps:
       - name: Copy Repo Files
         uses: actions/checkout@master
@@ -52,7 +50,7 @@ jobs:
           cache-to: type=gha,mode=max
 
   ubuntu_deploy:
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     strategy:
       matrix:
         release: [jammy, focal, bionic]
@@ -92,7 +90,7 @@ jobs:
           cache-to: type=gha,mode=max
 
   debian_deploy:
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     strategy:
       matrix:
         release: [bullseye, sid]
