@@ -11,7 +11,7 @@ RUN apt-get update && \
     curl -fsSL https://deb.nodesource.com/setup_21.x | sudo -E bash - && \
     sudo apt-get install -y nodejs
 
-ARG GH_RUNNER_VERSION="2.313.0"
+ARG GH_RUNNER_VERSION="2.314.1"
 
 ARG TARGETPLATFORM
 
